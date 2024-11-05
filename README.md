@@ -1,4 +1,4 @@
-# Interactive Quiz App
+# Favorite Cities
 
 ## Description
 
