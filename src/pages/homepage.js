@@ -33,6 +33,9 @@ export default function HomePage() {
             <Link href="/favorites">
               <MenuItem value="Favorites">Favorites</MenuItem>
             </Link>
+            <Link href="/randomCities">
+              <MenuItem value="Random Cities">Random Cities</MenuItem>
+            </Link>
           </MenuContent>
       </MenuRoot>
       <div
