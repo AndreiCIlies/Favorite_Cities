@@ -2,7 +2,16 @@
 
 ## Description
 
+With the Favorite Cities Application, you can effortlessly discover new cities, check out their weather, and even save your favorite spots to revisit anytime. Whether you’re in the mood for discovering new places or tracking your beloved locations, this app brings the world to your fingertips. Ready to explore? Your next favorite city is waiting for you!
+
 ## Technologies Used
+
+* JavaScript.
+* Next.js.
+* React.
+* Chakra UI.
+* api.opencagedata.com.
+* api.openweathermap.org.
 
 ## Installation and Running Instructions
 
