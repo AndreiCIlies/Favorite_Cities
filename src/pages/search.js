@@ -37,6 +37,7 @@ export default function Search() {
                 onChange={(e) => setSearchCity(e.target.value)}
             />
             <button onClick={handleSearch}>Search</button>
+            <br/><br/>
             <ul>
                 {results.map((city) => (
                     <li key={city.id}>
