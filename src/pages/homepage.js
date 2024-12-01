@@ -36,6 +36,9 @@ export default function HomePage() {
             <Link href="/randomCities">
               <MenuItem value="Random Cities">Random Cities</MenuItem>
             </Link>
+            <Link href="/yourLocation">
+              <MenuItem value="Your Location">Your Location</MenuItem>
+            </Link>
           </MenuContent>
       </MenuRoot>
       <div
