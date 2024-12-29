@@ -4,6 +4,10 @@
 
 With the Favorite Cities Application, you can effortlessly discover new cities, check out their weather, and even save your favorite spots to revisit anytime. Whether you’re in the mood for discovering new places or tracking your beloved locations, this app brings the world to your fingertips. Ready to explore? Your next favorite city is waiting for you!
 
+## Purpose
+
+The purpose of this application is to provide users with a personalized and interactive platform to discover and manage city-related data. Users can access detailed information about each city, including its country, latitude, longitude, and current weather, and manage their favorite cities by saving, viewing, and removing them on a dedicated page.
+
 ## Technologies Used
 
 * JavaScript.
