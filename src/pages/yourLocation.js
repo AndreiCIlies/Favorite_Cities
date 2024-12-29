@@ -102,11 +102,13 @@ export default function YourLocation() {
                 outline="2px solid white"
             >
                 {locationData.name}
-            <br />
-            <p>Country: {locationData.country}</p>
-            <p>Latitude: {locationData.lat}</p>
-            <p>Longitude: {locationData.lon}</p>
-            <h2>
+                <br/>
+                Country: {locationData.country}
+                <br/>
+                Latitude: {locationData.lat}
+                <br/>
+                Longitude: {locationData.lon}
+                <br/>
                 Actual Weather:{" "}
                 {weatherData ? (
                     <span>
@@ -115,7 +117,6 @@ export default function YourLocation() {
                 ) : (
                     <span>Found no details about weather</span>
                 )}
-            </h2>
             </Text>
         </Box>
     );
