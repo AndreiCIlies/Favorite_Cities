@@ -22,10 +22,13 @@ cd pathToClonedRepository
 **2. Install dependencies**  
 npm install
 
-**3. Run the application** 
+**3. Run the application**  
 npm run dev
 
-The app will be available at http://localhost:3000
+**4. Login section**  
+Users credentials are kept in pages/api/login.
+
+The app will be available at http://localhost:3000.
 
 ## Branch Structure
 
