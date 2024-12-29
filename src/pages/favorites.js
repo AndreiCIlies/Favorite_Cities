@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Box, Text } from "@chakra-ui/react";
+import { Button } from "@/components/ui/button"
 
 export default function Favorites() {
     const [favorites, setFavorites] = useState([]);
@@ -47,24 +49,81 @@ export default function Favorites() {
     const displayedFavorites = favorites.slice(0, 5);
 
     return (
-        <div>
-            <h1>Favorite Cities</h1>
+        <Box
+            backgroundImage="url('/images/3.jpg')"
+            backgroundSize="cover"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            minH="100vh"
+        >
+            <Text
+                fontSize="3xl"
+                fontWeight="bold"
+                color="white"
+                fontFamily="georgia"
+                backgroundColor="#F7CF2F"
+                padding="2"
+                width="8cm"
+                textAlign="center"
+                outline="2px solid white"
+            >
+                Favorites
+            </Text>
             <br/>
             {favorites.length === 0 ? (
-                <p>You have no favorite cities yet.</p>
+                <Text
+                    fontSize="1xl"
+                    fontWeight="bold"
+                    color="white"
+                    fontFamily="georgia"
+                    backgroundColor="limegreen"
+                    padding="2"
+                    textAlign="center"
+                    outline="2px solid white"
+                >
+                    You have no favorite cities yet.
+                </Text>
             ) : (
                 <ul>
                     {displayedFavorites.map((city) => (
                         <li key={`${city.city_name}-${city.country}`}>
-                            <h2>{city.city_name}, {city.country}</h2>
-                            <button onClick={() => handleRemoveFavorite(city.city_name, city.country)}>
-                                Remove from Favorites
-                            </button>
+                            <Text
+                                fontSize="1xl"
+                                fontWeight="bold"
+                                color="white"
+                                fontFamily="georgia"
+                                backgroundColor="limegreen"
+                                padding="2"
+                                textAlign="center"
+                                outline="2px solid white"
+                            >
+                                {city.city_name}, {city.country}
+                            </Text>
+                            <Button
+                                onClick={() => handleRemoveFavorite(city.city_name, city.country)}
+                                marginTop="4"
+                                height="8"
+                                width="auto"
+                                padding="4"
+                                backgroundColor="#256C95"
+                                variant="outline"
+                            >
+                                <Text
+                                    fontSize="1xl"
+                                    fontWeight="bold"
+                                    color="white"
+                                    fontFamily="georgia"
+                                >
+                                    Remove from Favorites
+                                </Text>
+                            </Button>
                             <br/><br/>
                         </li>
                     ))}
                 </ul>
             )}
-        </div>
+        </Box>
     );
 }

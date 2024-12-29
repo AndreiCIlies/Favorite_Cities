@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Box, Text } from "@chakra-ui/react";
 
 const getRandomCoordinates = () => {
   const lat = (Math.random() * 180 - 90).toFixed(6);
@@ -41,19 +42,75 @@ export default function RandomCities() {
     fetchRandomCities();
   }, [apiKey]);
 
-  if (cities.length === 0) return <p>Loading...</p>;
+  if (cities.length === 0) 
+    return (
+      <Box
+        backgroundImage="url('/images/3.jpg')"
+        backgroundSize="cover"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        minH="100vh"
+      >
+        <Text
+          fontSize="3xl"
+          fontWeight="bold"
+          color="white"
+          fontFamily="georgia"
+          backgroundColor="#F7CF2F"
+          padding="2"
+          width="8cm"
+          textAlign="center"
+          outline="2px solid white"
+        >
+          Loading...
+        </Text>
+      </Box>
+    )
 
   return (
-    <div>
-      <h1>5 Random Cities</h1>
+    <Box
+      backgroundImage="url('/images/3.jpg')"
+      backgroundSize="cover"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      minH="100vh"
+    >
+      <Text
+        fontSize="3xl"
+        fontWeight="bold"
+        color="white"
+        fontFamily="georgia"
+        backgroundColor="#F7CF2F"
+        padding="2"
+        width="8cm"
+        textAlign="center"
+        outline="2px solid white"
+      >
+        5 Random Cities
+      </Text>
       <br/>
       <ul>
         {cities.map((city, index) => (
           <li key={index}>
-            {city.city}, {city.country}
+            <Text
+               fontSize="1xl"
+               fontWeight="bold"
+               color="white"
+               fontFamily="georgia"
+               backgroundColor="limegreen"
+               padding="2"
+               textAlign="center"
+               outline="2px solid white"
+            >
+              {city.city}, {city.country}
+            </Text>
           </li>
         ))}
       </ul>
-    </div>
+    </Box>
   );
 }

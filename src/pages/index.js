@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { Box, Text } from "@chakra-ui/react"
+import { Button } from "@chakra-ui/react"
 
 export default function Home() {
   const [username, setUsername] = useState("");
@@ -22,8 +24,24 @@ export default function Home() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Welcome to the App</h1>
+    <Box
+      backgroundImage="url('/images/1.jpg')"
+      backgroundSize="cover"
+      minH="100vh"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      textAlign="center"
+    >
+      <Text
+        fontSize="3xl"
+        fontWeight="bold"
+        color="white"
+        fontFamily="tahoma"
+      >
+        Welcome to the Favorite Cities App!
+      </Text>
       <br/>
       <form onSubmit={handleLogin}>
         <input
@@ -40,10 +58,25 @@ export default function Home() {
           onChange={(e) => setPassword(e.target.value)}
           style={{ display: "block", margin: "10px auto" }}
         />
-        <button type="submit" style={{ marginTop: "20px" }}>
-          Login
-        </button>
+        <Button
+          type="submit"
+          marginTop="4"
+          height="8"
+          width="auto"
+          padding="4"
+          backgroundColor="#256C95"
+          variant="outline"
+        >
+          <Text
+            fontSize="1xl"
+            fontWeight="bold"
+            color="white"
+            fontFamily="georgia"
+          >
+            Login
+          </Text>
+        </Button>
       </form>
-    </div>
+    </Box>
   );
 }

@@ -2,7 +2,7 @@ export default function handler(req, res) {
     if (req.method === "POST") {
       const { username, password } = req.body;
   
-      const users = [{ username: "admin", password: "12345" }]; // Exemplu de utilizatori
+      const users = [{ username: "admin", password: "12345" }];
   
       const user = users.find(
         (u) => u.username === username && u.password === password

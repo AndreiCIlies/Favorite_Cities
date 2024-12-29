@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Box, Text } from "@chakra-ui/react";
+import { Button } from "@/components/ui/button"
 
 export default function Search() {
     const [searchCity, setSearchCity] = useState('');
@@ -13,6 +15,11 @@ export default function Search() {
         try {
             const response = await fetch(url);
             const data =  await response.json();
+
+            if (data.results.length === 0) {
+                alert("No results found for your search. Please try again!");
+                return;
+            }
 
             const cities = data.results.map((result, index) => ({
                 id: index,
@@ -29,24 +36,72 @@ export default function Search() {
     };
 
     return (
-        <div>
+        <Box
+            backgroundImage="url('/images/3.jpg')"
+            backgroundSize="cover"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            minH="100vh"
+        >
             <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Search City or Country"
                 value={searchCity}
                 onChange={(e) => setSearchCity(e.target.value)}
+                style={{
+                    textAlign: "center"
+                }}
             />
-            <button onClick={handleSearch}>Search</button>
+            <Button
+                onClick={handleSearch}
+                marginTop="4"
+                height="8"
+                width="16"
+                backgroundColor="#256C95"
+                variant="outline"
+            >
+                <Text
+                    fontSize="1xl"
+                    fontWeight="bold"
+                    color="white"
+                    fontFamily="georgia"
+                >
+                    Search
+                </Text>
+            </Button>
             <br/><br/>
             <ul>
-                {results.map((city) => (
-                    <li key={city.id}>
+                {results.length > 0 && (
+                <Box
+                    backgroundColor="rgba(255, 255, 255, 0.5)"
+                    borderRadius="md"
+                    padding="4"
+                >
+                    {results.map((city) => (
+                        <li key={city.id}>
                         <a href={`/city/${city.name},${city.country},${city.lat},${city.lon}`}>
-                            {city.name}, {city.country}
+                            <Button
+                                marginTop="4"
+                                height="8"
+                                width="auto"
+                                padding="4"
+                                backgroundColor="#256C95"
+                                variant="outline"
+                                fontSize="1xl"
+                                fontWeight="bold"
+                                color="white"
+                                fontFamily="georgia"
+                            >
+                                {city.name}, {city.country}
+                            </Button>
                         </a>
-                    </li>
-                ))}
+                        </li>
+                    ))}
+                </Box>
+            )}
             </ul>
-       </div>
+        </Box>
     );
 }

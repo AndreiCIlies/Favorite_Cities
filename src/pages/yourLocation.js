@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Box, Text } from "@chakra-ui/react";
 
 export default function YourLocation() {
     const [locationData, setLocationData] = useState(null);
@@ -39,11 +40,68 @@ export default function YourLocation() {
     }, []);
 
     if (error) return <p>Error: {error}</p>;
-    if (!locationData) return <p>Loading location...</p>;
+    if (!locationData)
+        return (
+            <Box
+              backgroundImage="url('/images/3.jpg')"
+              backgroundSize="cover"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center"
+              minH="100vh"
+            >
+              <Text
+                fontSize="3xl"
+                fontWeight="bold"
+                color="white"
+                fontFamily="georgia"
+                backgroundColor="#F7CF2F"
+                padding="2"
+                width="8cm"
+                textAlign="center"
+                outline="2px solid white"
+              >
+                Loading...
+              </Text>
+            </Box>
+          )
 
     return (
-        <div>
-            <h1>{locationData.name}</h1>
+        <Box
+            backgroundImage="url('/images/3.jpg')"
+            backgroundSize="cover"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            minH="100vh"
+        >
+            <Text
+                fontSize="3xl"
+                fontWeight="bold"
+                color="white"
+                fontFamily="georgia"
+                backgroundColor="#F7CF2F"
+                padding="2"
+                width="8cm"
+                textAlign="center"
+                outline="2px solid white"
+            >
+                Your Location
+            </Text>
+            <br/>
+            <Text
+                fontSize="1xl"
+                fontWeight="bold"
+                color="white"
+                fontFamily="georgia"
+                backgroundColor="limegreen"
+                padding="2"
+                textAlign="center"
+                outline="2px solid white"
+            >
+                {locationData.name}
             <br />
             <p>Country: {locationData.country}</p>
             <p>Latitude: {locationData.lat}</p>
@@ -58,6 +116,7 @@ export default function YourLocation() {
                     <span>Found no details about weather</span>
                 )}
             </h2>
-        </div>
+            </Text>
+        </Box>
     );
 }

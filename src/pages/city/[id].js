@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Box, Text } from "@chakra-ui/react";
+import { Button } from "@/components/ui/button"
 
 export default function City({ cityData, weatherData }) {
     const [isSaved, setIsSaved] = useState(false);
@@ -53,32 +55,85 @@ export default function City({ cityData, weatherData }) {
         }
     };
     
-    if (!cityData) return <p>Loading...</p>;
+    if (!cityData)
+        return (
+            <Box
+              backgroundImage="url('/images/3.jpg')"
+              backgroundSize="cover"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center"
+              minH="100vh"
+            >
+              <Text
+                fontSize="3xl"
+                fontWeight="bold"
+                color="white"
+                fontFamily="georgia"
+                backgroundColor="#F7CF2F"
+                padding="2"
+                width="8cm"
+                textAlign="center"
+                outline="2px solid white"
+              >
+                Loading...
+              </Text>
+            </Box>
+        );
 
     return (
-        <div>
-            <h1>{cityData.name}</h1>
-            <br/>
-            <p>Country: {cityData.country}</p>
-            <p>Latitude: {cityData.lat}</p>
-            <p>Longitude: {cityData.lon}</p>
-            <h2>
+        <Box
+            backgroundImage="url('/images/3.jpg')"
+            backgroundSize="cover"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            minH="100vh"
+        >
+            <Text
+                fontSize="1xl"
+                fontWeight="bold"
+                color="white"
+                fontFamily="georgia"
+                backgroundColor="limegreen"
+                padding="2"
+                textAlign="center"
+                outline="2px solid white"
+            >
+                {cityData.name}
+                <br/>
+                <br/>
+                Country: {cityData.country}
+                <br/>
+                Latitude: {cityData.lat}
+                <br/>
+                Longitude: {cityData.lon}
+                <br/>
                 Actual Weather:{" "}
-                {weatherData ? (
-                    <span>
-                        {weatherData.weather[0]?.description}, {weatherData.main?.temp}°C
-                    </span>
-                ) : (
-                    <span>Found no details about weather</span>
-                )}
-
-            </h2>
+                    {weatherData ? (
+                        <span>
+                            {weatherData.weather[0]?.description}, {weatherData.main?.temp}°C
+                        </span>
+                    ) : (
+                        <span>Found no details about weather</span>
+                    )}
+            </Text>
 
             <br/>
-            <button onClick={handleSaveCity}>
+            <Button
+                onClick={handleSaveCity}
+                marginTop="4"
+                height="8"
+                width="auto"
+                padding="4"
+                backgroundColor="#256C95"
+                variant="outline"
+            >
                 {isSaved ? "Remove from Favorites" : "Add to Favorites"}
-            </button>
-        </div>
+            </Button>
+        </Box>
     )
 }
 

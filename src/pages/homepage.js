@@ -6,6 +6,7 @@ import {
   MenuRoot,
   MenuTrigger,
 } from "@/components/ui/menu";
+import { Box, Text } from "@chakra-ui/react"
 import Link from "next/link";
 
 const geistSans = localFont({
@@ -21,23 +22,94 @@ const geistMono = localFont({
 
 export default function HomePage() {
   return (
-    <div>
+    <Box
+      backgroundImage="url('/images/2.jpg')"
+      backgroundSize="cover"
+      minH="100vh"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      textAlign="center"
+    >
       <MenuRoot>
         <MenuTrigger>
-          Menu
+          <Text
+            fontSize="3xl"
+            fontWeight="bold"
+            color="white"
+            backgroundColor="black"
+            fontFamily="georgia"
+            width="8cm"
+          >
+            - Menu -
+          </Text>
         </MenuTrigger>
-          <MenuContent>
+          <MenuContent
+            style={{
+              width: "8cm"
+            }}
+          >
             <Link href="/search">
-              <MenuItem value="Search">Search</MenuItem>
+              <MenuItem value="Search">
+                <Text
+                  fontSize="2xl"
+                  fontWeight="bold"
+                  color="black"
+                  fontFamily="georgia"
+                  textAlign="center"
+                  width="100%"
+                  marginTop="2"
+                  marginBottom="2"
+                >
+                  Search
+                </Text>
+              </MenuItem>
             </Link>
             <Link href="/favorites">
-              <MenuItem value="Favorites">Favorites</MenuItem>
+              <MenuItem value="Favorites">
+                <Text
+                  fontSize="2xl"
+                  fontWeight="bold"
+                  color="black"
+                  fontFamily="georgia"
+                  textAlign="center"
+                  width="100%"
+                  marginBottom="2"
+                >
+                  Favorites
+                </Text>
+              </MenuItem>
             </Link>
             <Link href="/randomCities">
-              <MenuItem value="Random Cities">Random Cities</MenuItem>
+              <MenuItem value="Random Cities">
+                <Text
+                  fontSize="2xl"
+                  fontWeight="bold"
+                  color="black"
+                  fontFamily="georgia"
+                  textAlign="center"
+                  width="100%"
+                  marginBottom="2"
+                >
+                  Random Cities
+                </Text>
+              </MenuItem>
             </Link>
             <Link href="/yourLocation">
-              <MenuItem value="Your Location">Your Location</MenuItem>
+              <MenuItem value="Your Location">
+                <Text
+                  fontSize="2xl"
+                  fontWeight="bold"
+                  color="black"
+                  fontFamily="georgia"
+                  textAlign="center"
+                  width="100%"
+                  marginBottom="2"
+                >
+                  Your Location
+                </Text>
+              </MenuItem>
             </Link>
           </MenuContent>
       </MenuRoot>
@@ -45,6 +117,6 @@ export default function HomePage() {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
       </div>
-    </div>
+    </Box>
   );
 }
