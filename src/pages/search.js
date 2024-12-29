@@ -8,32 +8,40 @@ export default function Search() {
 
     const handleSearch = async () => {
         if (!searchCity) return;
-
+    
         const apiKey = "cfae5ef01e504e0a8a657b85b1a806d5";
         const url = `https://api.opencagedata.com/geocode/v1/json?q=${searchCity}&key=${apiKey}`;
-
+    
         try {
             const response = await fetch(url);
-            const data =  await response.json();
-
-            if (data.results.length === 0) {
+            const data = await response.json();
+    
+            if (!data.results || data.results.length === 0) {
                 alert("No results found for your search. Please try again!");
                 return;
             }
-
-            const cities = data.results.map((result, index) => ({
-                id: index,
-                name: result.formatted,
-                country: result.components.country,
-                lat: result.geometry.lat,
-                lon: result.geometry.lng
-            }));
-
+    
+            const cities = data.results
+                .filter((result) => result.components.city || result.components.town || result.components.village)
+                .map((result, index) => ({
+                    id: index,
+                    name: result.formatted,
+                    country: result.components.country,
+                    lat: result.geometry.lat,
+                    lon: result.geometry.lng,
+                }));
+    
+            if (cities.length === 0) {
+                alert("Your search matches a country, not a city. Please enter a city name.");
+                return;
+            }
+    
             setResults(cities);
         } catch (error) {
             console.error("Error fetching data: ", error);
+            alert("An unexpected error occurred. Please try again later.");
         }
-    };
+    };    
 
     return (
         <Box
@@ -47,7 +55,7 @@ export default function Search() {
         >
             <input
                 type="text"
-                placeholder="Search City or Country"
+                placeholder="Search City"
                 value={searchCity}
                 onChange={(e) => setSearchCity(e.target.value)}
                 style={{
