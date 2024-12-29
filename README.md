@@ -51,3 +51,10 @@ git commit -m "Description"
 git push origin feature-name
 
 **4. Open a Pull Request (PR) from your branch to the appropiate branch**
+
+## Bibliography
+
+1. https://react.dev/
+2. https://www.chakra-ui.com/docs/components/concepts/overview
+3. https://opencagedata.com/api
+4. https://openweathermap.org/api
