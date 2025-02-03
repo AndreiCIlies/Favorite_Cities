@@ -17,7 +17,7 @@ The purpose of this application is to provide users with a personalized and inte
 * api.opencagedata.com.
 * api.openweathermap.org.
 
-## Installation and Running Instructions
+## Installation and Usage
 
 **1. Clone the repository**  
 git clone https://github.com/AndreiCIlies/Favorite_Cities.git  
